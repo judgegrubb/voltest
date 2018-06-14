@@ -25,15 +25,6 @@ fi
 
 ###############################################################################
 
-## Validate the environment.
-
-if test -z "$PID"; then
-  echo "$0: environment variable \$PID is not set"
-  exit 1
-fi
-
-###############################################################################
-
 # Abort this script when any command fails.
 set -e
 # Abort this script when any unbound variable is used.
@@ -50,7 +41,7 @@ work_run_home="$work_home/run"
 VOLTEST_DIR=voltest
 
 # Where to download voltest from, via Git.
-VOLTEST_GIT=https://github.com/csmith-project/voltest.git
+VOLTEST_GIT=https://github.com/judgegrubb/voltest.git
 #
 ## The following is unlikely to work, since a node startcmd probably does not
 ## have access to any SSH private key useful for authenticating to GitHub.
@@ -72,7 +63,7 @@ echo "*** [$time]" "Setting up work directories..."
 umask 002
 
 sudo mkdir -p "$work_home"
-sudo chown "$USER:$PID" "$work_home"
+sudo chown "$USER" "$work_home"
 chmod ug+rwx "$work_home"
 
 mkdir "$work_src_home"
